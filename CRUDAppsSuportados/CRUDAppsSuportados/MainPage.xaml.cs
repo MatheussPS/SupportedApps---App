@@ -2,6 +2,7 @@
 using CRUDAppsSuportados.Services;
 using CRUDAppsSuportados.ViewModels;
 using Microsoft.Maui;
+using System.Threading.Tasks;
 
 namespace CRUDAppsSuportados
 {
@@ -26,11 +27,25 @@ namespace CRUDAppsSuportados
             string results = await service.PostApp(model);
 
             BindingContext = new AppSuportadoViewModel();
-            await DisplayAlert("Results", "" + results, "OK");
+            await DisplayAlert("Resultado", "" + results, "OK");
         }
 
-        private void Button_Clicked_1(object sender, EventArgs e)
+        private async void ImageButton_Clicked(object sender, EventArgs e)
         {
+            var button = (ImageButton)sender;
+            var app = (AppSuportadoModel)button.CommandParameter;
+
+            await DisplayAlert("Model", app.Nome, "OK");
+        }
+
+        private async void ImageButton_Clicked_1(object sender, EventArgs e)
+        {
+            var button = (ImageButton)sender;
+            var app = (AppSuportadoModel)button.CommandParameter;
+
+            bool results = await service.deleteUser(app.Id);
+            BindingContext = new AppSuportadoViewModel();
+            if (results) await DisplayAlert("Results", "Sucesso!", "OK");
 
         }
     }

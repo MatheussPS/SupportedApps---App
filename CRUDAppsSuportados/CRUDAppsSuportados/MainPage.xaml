@@ -11,7 +11,7 @@
                 <Entry x:Name="RefEntry" Placeholder="Digite a referencia"></Entry>
                 <Entry x:Name="SitEntry" Placeholder="Digite a situacao"></Entry>
 
-                <Button Clicked="Button_Clicked" Text="Adicionar App"></Button>
+                <Button x:Name="buttonForm" Clicked="Button_Clicked" Text="Adicionar App"></Button>
             </VerticalStackLayout>
 
             <VerticalStackLayout>
@@ -19,13 +19,35 @@
                 <CollectionView ItemsSource="{Binding Apps}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <VerticalStackLayout Padding="10" Spacing="5">
-                                <Label Text="{Binding Id}" FontSize="20" />
-                                <Label Text="{Binding Nome}" FontSize="20" />
-                                <Label Text="{Binding Descricao}" FontSize="20" />
-                                <Label Text="{Binding Referencia}" FontSize="20" />
-                                <Label Text="{Binding Situacao}" FontSize="20"/>
-                            </VerticalStackLayout>
+                            <HorizontalStackLayout>
+                                <VerticalStackLayout Padding="10" Spacing="5">
+                                    <Label Text="{Binding Id}" FontSize="14" />
+                                    <Label Text="{Binding Nome}" FontSize="14" />
+                                    <Label Text="{Binding Descricao}" FontSize="14" />
+                                    <Label Text="{Binding Referencia}" FontSize="14" />
+                                    <Label Text="{Binding Situacao}" FontSize="14"/>
+                                </VerticalStackLayout>
+                                <VerticalStackLayout>
+                                    <ImageButton 
+                                        Source="pencil.png" 
+                                                 WidthRequest="30"
+                                                 HeightRequest="30"
+                                                 BackgroundColor="White"
+                                                 Clicked="ImageButton_Clicked"
+                                                Margin="5"
+                                        CommandParameter="{Binding .}">
+                                    </ImageButton>
+                                    <ImageButton 
+                                        Source="trash.png" 
+                                        BackgroundColor="Red"
+                                        WidthRequest="30"
+                                        HeightRequest="30"
+                                        Clicked="ImageButton_Clicked_1"
+                                        CommandParameter="{Binding .}">
+                                    </ImageButton>
+                                </VerticalStackLayout>
+                            </HorizontalStackLayout>
+                            
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
