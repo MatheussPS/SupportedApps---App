@@ -11,7 +11,5 @@ namespace CRUDAppsSuportados
 
         public const string apiBaseURL = "http://192.168.0.106:5000";
 
-        public string getURL () { return apiBaseURL; }
-
     }
 }
