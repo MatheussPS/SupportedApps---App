@@ -107,27 +107,31 @@ namespace CRUDAppsSuportados.Services
             }
         }
 
-        public async Task<bool> PutApp(AppSuportadoModel model)
+        public async Task<string> PutApp(AppSuportadoModel model)
         {
             if (Connectivity.Current.NetworkAccess != NetworkAccess.Internet)
             {
-                return false;
+                return "Sem internet!";
             }
 
             try
             {
-                var response = httpClient.PutAsJsonAsync($"{Globals.apiBaseURL}/AppSuportado", model);
 
-                if (response.IsCompletedSuccessfully)
+                var json = JsonSerializer.Serialize(model);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                var response = await httpClient.PutAsync($"{Globals.apiBaseURL}/AppSuportado", content);
+
+                if (response.IsSuccessStatusCode)
                 {
-                    return true;
+                    return "Atualizado com Sucesso!";
                 }
-                return false;
+                return response.StatusCode.ToString();
             }
             catch (Exception e)
             {
-                Debug.WriteLine(e.Message);
-                return false;
+                return e.ToString();
+
             }
 
         }
