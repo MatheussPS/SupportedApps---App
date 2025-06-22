@@ -16,10 +16,16 @@
 
             <VerticalStackLayout>
 
-                <CollectionView ItemsSource="{Binding Textos}">
+                <CollectionView ItemsSource="{Binding Apps}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Label Text="{Binding .}" FontSize="20" Padding="10"/>
+                            <VerticalStackLayout Padding="10" Spacing="5">
+                                <Label Text="{Binding Id}" FontSize="20" />
+                                <Label Text="{Binding Nome}" FontSize="20" />
+                                <Label Text="{Binding Descricao}" FontSize="20" />
+                                <Label Text="{Binding Referencia}" FontSize="20" />
+                                <Label Text="{Binding Situacao}" FontSize="20"/>
+                            </VerticalStackLayout>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>
