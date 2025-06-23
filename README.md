@@ -7,14 +7,14 @@ no MAUI -> mudar o valor da variavel "apiBaseURL" do arquivo Globals.cs para o e
 
 <h1>TELAS</h1>
 
-Adicionando
+<h2>Adicionando</h2>
 <img src="https://raw.githubusercontent.com/MatheussPS/SupportedApps---App/refs/heads/main/add.jpg"/>
 
-Atualizando
+<h2>Atualizando</h2>
 <img src="https://raw.githubusercontent.com/MatheussPS/SupportedApps---App/refs/heads/main/update.jpg"/>
 
-Resultados pós atualização e adição
+<h2>Resultados pós atualização e adição</h2>
 <img src="https://raw.githubusercontent.com/MatheussPS/SupportedApps---App/refs/heads/main/results.jpg"/>
 
-Pós delete
+<h2>Pós delete</h2>
 <img src="https://raw.githubusercontent.com/MatheussPS/SupportedApps---App/refs/heads/main/IMG-20250623-WA0008.jpg"/>
